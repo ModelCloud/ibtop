@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibtop"
+version = "0.1.0"
+description = "Python-only InfiniBand top-style monitor for Linux sysfs counters"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  {name = "ibtop maintainers"}
+]
+keywords = ["infiniband", "rdma", "monitoring", "tui", "linux"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console :: Curses",
+  "Intended Audience :: System Administrators",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: System :: Monitoring",
+]
+dependencies = [
+  "LogBar>=0.4.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/ModelCloud/ibtop"
+Issues = "https://github.com/ModelCloud/ibtop/issues"
+
+[project.scripts]
+ibtop = "ibtop.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
